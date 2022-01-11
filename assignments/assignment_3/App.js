@@ -27,5 +27,10 @@ app.post("/user/add",(req,res)=>{
     res.redirect('/')
 })
 
+// app.get("/user/clear",(req,res)=>{
+//     users.splice(0,users.length)
+//     res.redirect('/')
+// })
+
 app.listen(3000,()=> console.log("server is listening at port 3000"));
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nodejs app using express</title>
+        <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <button type="button" onclick="window.location.href='/form'">Add new user</button>
+            <button type="reset" onclick="window.location.reload(true)">Clear</button>
+            <!-- <button type="reset" onclick="window.location.href='/user/clear'">Clear</button> -->
+        </div>
+        
+        <div>
+            <table style="width: 100%;">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Profession</th>
+                    <th>Select</th>
+                    <th>Delete</th>
+                </tr>
+
+                <% Candidate.forEach(data =>{%>
+                    <% if (data.selected){%>
+                        <tr class="selected">
+                            <td><%= data.name %></td>
+                            <td><%= data.email %></td>
+                            <td><%= data.age %></td>
+                            <td><%= data.city %></td>
+                            <td><%= data.profession %></td>
+                            <td>
+                                <form method="post" action="/select/<%= data._id%>/data?_method=PUT">
+                                    <button>select</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="/delete/<%= data._id%>/data?_method=DELETE">
+                                    <button>delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <%} else {%>
+                        <tr>
+                            <td><%= data.name %></td>
+                            <td><%= data.email %></td>
+                            <td><%= data.age %></td>
+                            <td><%= data.city %></td>
+                            <td><%= data.profession %></td>
+                            <td>
+                                <form method="post" action="/select/<%= data._id%>/data?_method=PUT">
+                                    <button>select</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="/delete/<%= data._id%>/data?_method=DELETE">
+                                    <button>delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <%}%>
+                <%}) %>
+            </table>
+        </div>
+    </body>
+</html>
