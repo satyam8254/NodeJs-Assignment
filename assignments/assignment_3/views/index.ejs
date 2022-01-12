@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nodejs app using express</title>
+        <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <button type="button" onclick="window.location.href='/Home'">Add new user</button>
+            <!-- <button type="reset" onclick="window.location.href='/user/clear'">Clear</button> -->
+        </div>
+        <div>
+            <% users.forEach(user =>{%>
+                <div class="user-container">
+                    <h4><%= user.name%></h4>
+                    <h4><%= user.email%></h4>
+                </div>
+            <%})%>
+        </div>
+        
+
+    </body>
+</html>
